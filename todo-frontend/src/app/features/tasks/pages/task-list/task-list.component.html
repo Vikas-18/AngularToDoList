@@ -1,0 +1,34 @@
+<div class="todo-container">
+  <h1 class="title">My To-Do List</h1>
+
+  <div class="add-task">
+    <input type="text" placeholder="Task title" #title>
+    <input type="text" placeholder="Description" #description>
+    <button (click)="addTask(title.value, description.value)">
+      Add
+    </button>
+  </div>
+
+  <div class="task-list">
+    <div class="task-card" *ngFor="let task of tasks">
+      <div class="task-info">
+        <h3 [class.completed]="task.completed">
+          {{ task.title }}
+        </h3>
+        <p>{{ task.description }}</p>
+      </div>
+
+      <div class="task-actions">
+        <button class="complete"
+                (click)="toggleComplete(task)">
+          ✓
+        </button>
+
+        <button class="delete"
+                (click)="deleteTask(task.id!)">
+          ✕
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
