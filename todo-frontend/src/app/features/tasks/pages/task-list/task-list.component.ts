@@ -5,7 +5,7 @@ import { Task } from '../../models/task.model';
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss']
+  styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
@@ -15,7 +15,9 @@ export class TaskListComponent implements OnInit {
   ngOnInit(): void {
     this.loadTasks();
   }
-
+  hasCompletedTasks(): boolean {
+    return this.tasks.some((t) => t.completed);
+  }
   loadTasks() {
     this.taskService.getTasks().subscribe((data) => {
       this.tasks = data;
