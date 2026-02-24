@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:8080/api/tasks';
+  private apiUrl = 'https://todolist-backend-201u.onrender.com/api/tasks';
 
   constructor(private http: HttpClient) {}
 
